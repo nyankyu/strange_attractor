@@ -37,11 +37,7 @@ impl<Param: AttractorParam> Particle<Param> {
                 let rotated = rotation.mul_vec3a(p - Param::CENTER) + Param::CENTER;
                 let depth = rotated.x - Param::CAMERA.x;
                 let (scale, alpha) = if depth > 0.0 {
-                    let distance = Param::CAMERA.distance(rotated);
-                    (
-                        distance_screen / depth,
-                        255 - (distance as u8).saturating_mul(4),
-                    )
+                    (distance_screen / depth, 180)
                 } else {
                     (1000_000.0, 0)
                 };
