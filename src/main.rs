@@ -20,8 +20,8 @@ struct Model {
     window_id: WindowId,
     //attractor: Attractor<LorenzAttractor>,
     //attractor: Attractor<HalvorsenAttractor>,
-    attractor: Attractor<ThomasAttractor>,
-    //attractor: Attractor<LangfordAttractor>,
+    //attractor: Attractor<ThomasAttractor>,
+    attractor: Attractor<LangfordAttractor>,
     //attractor: Attractor<DadrasAttractor>,
     //attractor: Attractor<Lorenz83Attractor>,
 }
