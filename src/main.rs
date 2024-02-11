@@ -21,8 +21,8 @@ struct Model {
     //attractor: Attractor<LorenzAttractor>,
     //attractor: Attractor<HalvorsenAttractor>,
     //attractor: Attractor<ThomasAttractor>,
-    attractor: Attractor<LangfordAttractor>,
-    //attractor: Attractor<DadrasAttractor>,
+    //attractor: Attractor<LangfordAttractor>,
+    attractor: Attractor<DadrasAttractor>,
     //attractor: Attractor<Lorenz83Attractor>,
 }
 
@@ -48,7 +48,7 @@ fn model(app: &App) -> Model {
 
 fn update(app: &App, model: &mut Model, _update: Update) {
     let minutes = app.elapsed_frames() / 60 / 60;
-    if minutes >= 8 {
+    if minutes >= 9 {
         exit(0);
     }
 
