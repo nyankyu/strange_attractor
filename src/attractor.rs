@@ -17,7 +17,7 @@ pub(crate) use param::langford_attractor::LangfordAttractor;
 #[allow(unused_imports)]
 pub(crate) use param::dadras_attractor::DadrasAttractor;
 #[allow(unused_imports)]
-pub(crate) use param::lorenz83_attractor::Lorenz83Attractor;
+pub(crate) use param::lorenz84_attractor::Lorenz84Attractor;
 
 use particle::Particle;
 

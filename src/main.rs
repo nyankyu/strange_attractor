@@ -22,8 +22,8 @@ struct Model {
     //attractor: Attractor<HalvorsenAttractor>,
     //attractor: Attractor<ThomasAttractor>,
     //attractor: Attractor<LangfordAttractor>,
-    attractor: Attractor<DadrasAttractor>,
-    //attractor: Attractor<Lorenz83Attractor>,
+    //attractor: Attractor<DadrasAttractor>,
+    attractor: Attractor<Lorenz84Attractor>,
 }
 
 fn model(app: &App) -> Model {

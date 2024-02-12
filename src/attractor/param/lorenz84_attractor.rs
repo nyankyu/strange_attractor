@@ -13,9 +13,9 @@ const B: f32 = 4.0;
 const F: f32 = 8.0;
 const G: f32 = 1.25;
 
-pub(crate) struct Lorenz83Attractor {}
+pub(crate) struct Lorenz84Attractor {}
 
-impl AttractorParam for Lorenz83Attractor {
+impl AttractorParam for Lorenz84Attractor {
     const ANGLE_OF_VIEW: f32 = 90.0 / 180.0 * PI;
 
     const ORBIT_NUM: usize = 400;
@@ -38,7 +38,7 @@ impl AttractorParam for Lorenz83Attractor {
     const COLOR: Rgb8 = RED;
 
     fn new() -> Self {
-        Lorenz83Attractor {}
+        Lorenz84Attractor {}
     }
 
     fn random_point() -> Vec3A {
