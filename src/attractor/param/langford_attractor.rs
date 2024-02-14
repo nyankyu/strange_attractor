@@ -45,11 +45,11 @@ impl AttractorParam for LangfordAttractor {
         )
     }
 
-    fn make_next(p: &Vec3A) -> Vec3A {
+    fn slope(p: Vec3A) -> Vec3A {
         let dx = (p.z - B) * p.x - D * p.y;
         let dy = D * p.x + (p.z - B) * p.y;
         let dz = C + A * p.z - p.z * p.z * p.z / 3.0 - (p.x * p.x + p.y * p.y) * (1.0 + E * p.z)
             + F * p.z * p.x * p.x * p.x;
-        *p + vec3a(dx, dy, dz) * Self::DELTA_T
+        vec3a(dx, dy, dz)
     }
 }

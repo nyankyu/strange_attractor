@@ -1,6 +1,6 @@
-use nannou::prelude::*;
-use nannou::glam::const_vec3a;
 use crate::AttractorParam;
+use nannou::glam::const_vec3a;
+use nannou::prelude::*;
 
 /*
 const A: f32 = 0.95;
@@ -49,10 +49,10 @@ impl AttractorParam for Lorenz84Attractor {
         )
     }
 
-    fn make_next(p: &Vec3A) -> Vec3A {
-        let dx = - A * p.x - p.y * p.y - p.z * p.z + A * F;
-        let dy = - p.y + p.x * p.y - B * p.x * p.z + G;
-        let dz = - p.z + B * p.x * p.y + p.x * p.z;
-        *p + vec3a(dx, dy, dz) * Self::DELTA_T
+    fn slope(p: Vec3A) -> Vec3A {
+        let dx = -A * p.x - p.y * p.y - p.z * p.z + A * F;
+        let dy = -p.y + p.x * p.y - B * p.x * p.z + G;
+        let dz = -p.z + B * p.x * p.y + p.x * p.z;
+        vec3a(dx, dy, dz)
     }
 }

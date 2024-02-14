@@ -1,23 +1,26 @@
 mod param;
 mod particle;
 
+use nannou::{
+    glam::{EulerRot, Vec3Swizzles},
+    prelude::*,
+};
 use std::marker::PhantomData;
-use nannou::{glam::{EulerRot, Vec3Swizzles}, prelude::*};
 
 use crate::WINDOW_W;
 
 #[allow(unused_imports)]
-pub(crate) use param::lorenz_attractor::LorenzAttractor;
+pub(crate) use param::dadras_attractor::DadrasAttractor;
 #[allow(unused_imports)]
 pub(crate) use param::halvorsen_attractor::HalvorsenAttractor;
 #[allow(unused_imports)]
-pub(crate) use param::thomas_attractor::ThomasAttractor;
-#[allow(unused_imports)]
 pub(crate) use param::langford_attractor::LangfordAttractor;
 #[allow(unused_imports)]
-pub(crate) use param::dadras_attractor::DadrasAttractor;
-#[allow(unused_imports)]
 pub(crate) use param::lorenz84_attractor::Lorenz84Attractor;
+#[allow(unused_imports)]
+pub(crate) use param::lorenz_attractor::LorenzAttractor;
+#[allow(unused_imports)]
+pub(crate) use param::thomas_attractor::ThomasAttractor;
 
 use particle::Particle;
 
@@ -46,7 +49,7 @@ pub(crate) trait AttractorParam {
 
     fn new() -> Self;
     fn random_point() -> Vec3A;
-    fn make_next(p: &Vec3A) -> Vec3A;
+    fn slope(p: Vec3A) -> Vec3A;
 }
 
 pub(crate) struct Attractor<Param: AttractorParam> {

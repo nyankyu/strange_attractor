@@ -1,6 +1,6 @@
-use nannou::prelude::*;
-use nannou::glam::const_vec3a;
 use crate::AttractorParam;
+use nannou::glam::const_vec3a;
+use nannou::prelude::*;
 
 const B: f32 = 0.195;
 
@@ -39,10 +39,10 @@ impl AttractorParam for ThomasAttractor {
         )
     }
 
-    fn make_next(p: &Vec3A) -> Vec3A {
+    fn slope(p: Vec3A) -> Vec3A {
         let dx = p.y.sin() - B * p.x;
         let dy = p.z.sin() - B * p.y;
         let dz = p.x.sin() - B * p.z;
-        *p + vec3a(dx, dy, dz) * Self::DELTA_T
+        vec3a(dx, dy, dz)
     }
 }

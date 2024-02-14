@@ -1,7 +1,7 @@
-use nannou::prelude::*;
+use crate::AttractorParam;
 use nannou::glam::const_mat3a;
 use nannou::glam::const_vec3a;
-use crate::AttractorParam;
+use nannou::prelude::*;
 
 const A: f32 = 1.3;
 const MAT: Mat3A = const_mat3a!([-A, -4.0, -4.0], [-4.0, -A, -4.0], [-4.0, -4.0, -A]);
@@ -42,8 +42,7 @@ impl AttractorParam for HalvorsenAttractor {
         )
     }
 
-    fn make_next(p: &Vec3A) -> Vec3A {
-        let d = MAT * *p - vec3a(p.y * p.y, p.z * p.z, p.x * p.x);
-        *p + d * Self::DELTA_T
+    fn slope(p: Vec3A) -> Vec3A {
+        MAT * p - vec3a(p.y * p.y, p.z * p.z, p.x * p.x)
     }
 }

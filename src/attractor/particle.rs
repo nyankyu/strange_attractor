@@ -21,8 +21,8 @@ impl<Param: AttractorParam> Particle<Param> {
     }
 
     pub(super) fn update(&mut self) {
-        let last = Param::make_next(&self.orbit.back().unwrap());
-        self.orbit.push_back(last);
+        let next = Self::runge_kutta4(*self.orbit.back().unwrap());
+        self.orbit.push_back(next);
 
         if self.orbit.len() > Param::ORBIT_LEN {
             self.orbit.pop_front();
@@ -48,5 +48,13 @@ impl<Param: AttractorParam> Particle<Param> {
                 };
                 (coordinate, color)
             }));
+    }
+
+    fn runge_kutta4(p: Vec3A) -> Vec3A {
+        let k1 = Param::DELTA_T * Param::slope(p);
+        let k2 = Param::DELTA_T * Param::slope(p + 0.5 * k1);
+        let k3 = Param::DELTA_T * Param::slope(p + 0.5 * k2);
+        let k4 = Param::DELTA_T * Param::slope(p + k3);
+        p + (k1 + k2 + k2 + k3 + k3 + k4) / 6.0
     }
 }

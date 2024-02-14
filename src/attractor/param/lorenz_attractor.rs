@@ -1,6 +1,6 @@
-use nannou::prelude::*;
-use nannou::glam::const_vec3a;
 use crate::AttractorParam;
+use nannou::glam::const_vec3a;
+use nannou::prelude::*;
 
 const SIGMA: f32 = 10.0;
 const BETA: f32 = 8.0 / 3.0;
@@ -42,10 +42,10 @@ impl AttractorParam for LorenzAttractor {
         )
     }
 
-    fn make_next(p: &Vec3A) -> Vec3A {
+    fn slope(p: Vec3A) -> Vec3A {
         let dx = SIGMA * (p.y - p.x);
         let dy = p.x * (RHO - p.z) - p.y;
         let dz = p.x * p.y - BETA * p.z;
-        *p + vec3a(dx, dy, dz) * Self::DELTA_T
+        vec3a(dx, dy, dz)
     }
 }

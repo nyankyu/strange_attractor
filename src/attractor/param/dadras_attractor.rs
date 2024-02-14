@@ -44,10 +44,10 @@ impl AttractorParam for DadrasAttractor {
         )
     }
 
-    fn make_next(p: &Vec3A) -> Vec3A {
+    fn slope(p: Vec3A) -> Vec3A {
         let dx = p.y - A * p.x + B * p.y * p.z;
         let dy = C * p.y + p.z * (1.0 - p.x);
         let dz = D * p.x * p.y - E * p.z;
-        *p + vec3a(dx, dy, dz) * Self::DELTA_T
+        vec3a(dx, dy, dz)
     }
 }
