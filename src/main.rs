@@ -48,7 +48,7 @@ fn model(app: &App) -> Model {
 
 fn update(app: &App, model: &mut Model, _update: Update) {
     let minutes = app.elapsed_frames() / 60 / 60;
-    if minutes >= 9 {
+    if minutes >= 7 {
         exit(0);
     }
 

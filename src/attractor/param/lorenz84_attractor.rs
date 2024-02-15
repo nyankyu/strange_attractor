@@ -2,32 +2,26 @@ use crate::AttractorParam;
 use nannou::glam::const_vec3a;
 use nannou::prelude::*;
 
-/*
-const A: f32 = 0.95;
-const B: f32 = 7.91;
-const F: f32 = 4.83;
-const G: f32 = 4.66;
-*/
 const A: f32 = 0.25;
 const B: f32 = 4.0;
 const F: f32 = 8.0;
-const G: f32 = 1.25;
+const G: f32 = 1.0;
 
 pub(crate) struct Lorenz84Attractor {}
 
 impl AttractorParam for Lorenz84Attractor {
-    const ANGLE_OF_VIEW: f32 = 90.0 / 180.0 * PI;
+    const ANGLE_OF_VIEW: f32 = 100.0 / 180.0 * PI;
 
-    const ORBIT_NUM: usize = 400;
-    const ORBIT_LEN: usize = 600;
-    const ORBIT_WEIGHT: f32 = 0.5;
+    const ORBIT_NUM: usize = 2000;
+    const ORBIT_LEN: usize = 70;
+    const ORBIT_WEIGHT: f32 = 0.4;
 
-    const DRAW_SKIP: usize = Self::ORBIT_LEN * 2;
+    const DRAW_SKIP: usize = Self::ORBIT_LEN * 200;
 
-    const DELTA_T: f32 = 0.005;
+    const DELTA_T: f32 = 0.006;
 
-    const CAMERA: Vec3A = const_vec3a!([-3.0, 1.0, 2.0]);
-    const CENTER: Vec3A = const_vec3a!([0.0, 1.0, 2.0]);
+    const CAMERA: Vec3A = const_vec3a!([-2.0, 1.2, 0.0]);
+    const CENTER: Vec3A = const_vec3a!([1.0, 1.5, 0.0]);
 
     const DELTA_THETA: f32 = 0.0003;
 
@@ -35,7 +29,7 @@ impl AttractorParam for Lorenz84Attractor {
     const ROTAION_Y: f32 = -7.9;
     const ROTAION_Z: f32 = 1.0;
 
-    const COLOR: Rgb8 = RED;
+    const COLOR: Rgb8 = DEEPPINK;
 
     fn new() -> Self {
         Lorenz84Attractor {}
@@ -43,9 +37,9 @@ impl AttractorParam for Lorenz84Attractor {
 
     fn random_point() -> Vec3A {
         vec3a(
+            random_range(0.0, 3.0),
             random_range(-3.0, 3.0),
-            random_range(-3.0, 3.0),
-            random_range(0.0, 6.0),
+            random_range(0.0, 3.0),
         )
     }
 
