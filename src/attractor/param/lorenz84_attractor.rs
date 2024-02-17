@@ -12,13 +12,13 @@ pub(crate) struct Lorenz84Attractor {}
 impl AttractorParam for Lorenz84Attractor {
     const ANGLE_OF_VIEW: f32 = 100.0 / 180.0 * PI;
 
-    const ORBIT_NUM: usize = 2000;
-    const ORBIT_LEN: usize = 70;
-    const ORBIT_WEIGHT: f32 = 0.4;
+    const ORBIT_NUM: usize = 900;
+    const ORBIT_LEN: usize = 200;
+    const ORBIT_WEIGHT: f32 = 0.7;
 
     const DRAW_SKIP: usize = Self::ORBIT_LEN * 200;
 
-    const DELTA_T: f32 = 0.006;
+    const DELTA_T: f32 = 0.003;
 
     const CAMERA: Vec3A = const_vec3a!([-2.0, 1.2, 0.0]);
     const CENTER: Vec3A = const_vec3a!([1.0, 1.5, 0.0]);
