@@ -5,6 +5,7 @@ use nannou::prelude::*;
 use attractor::*;
 
 const RECORDING: bool = false;
+const MINUTES_MAX: u64 = 31;
 
 const WINDOW_H: u32 = if RECORDING { 2160 } else { 800 };
 const WINDOW_W: u32 = if RECORDING { 3840 } else { 1422 };
@@ -23,7 +24,8 @@ struct Model {
     //attractor: Attractor<ThomasAttractor>,
     //attractor: Attractor<LangfordAttractor>,
     //attractor: Attractor<DadrasAttractor>,
-    attractor: Attractor<Lorenz84Attractor>,
+    //attractor: Attractor<Lorenz84Attractor>,
+    attractor: Attractor<BurkeShawAttractor>,
 }
 
 fn model(app: &App) -> Model {
@@ -48,7 +50,7 @@ fn model(app: &App) -> Model {
 
 fn update(app: &App, model: &mut Model, _update: Update) {
     let minutes = app.elapsed_frames() / 60 / 60;
-    if minutes >= 7 {
+    if minutes >= MINUTES_MAX {
         exit(0);
     }
 

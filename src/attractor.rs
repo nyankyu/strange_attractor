@@ -21,6 +21,8 @@ pub(crate) use param::lorenz84_attractor::Lorenz84Attractor;
 pub(crate) use param::lorenz_attractor::LorenzAttractor;
 #[allow(unused_imports)]
 pub(crate) use param::thomas_attractor::ThomasAttractor;
+#[allow(unused_imports)]
+pub(crate) use param::burke_shaw_attractor::BurkeShawAttractor;
 
 use particle::Particle;
 
